@@ -1,0 +1,7 @@
+ 
+<form ng-controller='SearchController as vm' class = "search" ng-submit="vm.symbolSearch(); vm.saveSearch()">
+    <label>Search by Symbol:</label>
+    <input type="text" ng-model="vm.symbol"/>
+    
+  <button type="submit" class="btn btn-primary" name="search-symbol">Search</button>
+  </form>

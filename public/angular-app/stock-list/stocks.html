@@ -1,0 +1,13 @@
+<h1>{{vm.title}}</h1>
+<form id = "filter">
+    <label>Search by company:</label>
+    <input type="text" ng-model="search"/>
+    <!--<button ng-click="orderBy('Name')">Name</button>-->
+</form>
+<ul>
+    <li ng-repeat="stock in vm.stocks | filter: search | orderBy: 'Symbol'"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>
+</ul>
+
+<!--<ul>-->
+<!--    <li ng-repeat="stock in vm.stocks"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>-->
+<!--</ul>-->

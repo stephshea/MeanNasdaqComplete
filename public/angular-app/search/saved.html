@@ -1,0 +1,49 @@
+<h1>Search {{vm.title}}</h1>
+<form id = "search" ng-submit="vm.symbolSearch(); vm.saveSearch()">
+    <label>Search by Symbol:</label>
+    <input type="text" ng-model="vm.symbol"/>
+    
+  <button type="submit" class="btn btn-primary" name="search-symbol">Search</button>
+  </form>
+  
+  <h4>Search Result</h4>
+<p><a ng-href="#!/stock/{{vm.stock._id}}">{{vm.stock.Name}} | {{vm.stock.Symbol}}</a></p>  
+  
+  
+  <h4>Saved Searches</h4>
+<ul>
+  <li ng-repeat="searches in vm.stock.searches">
+    
+{{ searches.search }}</li>
+</ul>
+    
+<!--{{ search.search }} | posted: {{ search.createdOn }}-->
+
+
+<!--<div>-->
+<!--  <form name="vm.searchForm" ng-submit="vm.addSearch()">-->
+   
+<!--    Search stock Symbols: <input type="text" name="search" required ng-model="vm.search">-->
+    <!--<div ng-show="vm.searchForm.search.$dirty && vm.isSubmitted">-->
+    <!--  <p>Enter a symbol</p>-->
+    
+
+  
+<!--<ul>-->
+<!--  <li ng-repeat="comment in vm.stock.comments">  <!--{{ comment.username }} says:-->
+    
+<!--{{ comment.comment }} | posted: {{ comment.createdOn }}</li>-->
+<!--</ul>-->
+
+
+
+<!--<mnSearch></mnSearch>-->
+
+
+<!--<ul>-->
+<!--    <li ng-repeat="stock in vm.stocks | filter: search | orderBy: 'Symbol'"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>-->
+<!--</ul>-->
+
+<!--<ul>-->
+<!--    <li ng-repeat="stock in vm.stocks"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>-->
+<!--</ul>-->
