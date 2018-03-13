@@ -17,7 +17,8 @@ function stockDataFactory($http) {
         stockDisplay: stockDisplay,
         postComment: postComment,
         searchDisplay: searchDisplay,
-        saveSearch: saveSearch
+        searchAddOne: searchAddOne,
+        searchGetAll : searchGetAll
     };
     
     function stockList() {
@@ -44,8 +45,12 @@ function stockDataFactory($http) {
         return $http.get('/api/stocks/search/' + symbol).then(complete).catch(failed);
     }
      
-     function saveSearch(symbol) {
-        return $http.post('/api/stocks/search/' + symbol).then(complete).catch(failed);
+     function searchAddOne(symbol) {
+        return $http.post('/api/stocks/search/', symbol).then(complete).catch(failed);
+    }
+    
+    function searchGetAll() {
+        return $http.get('/api/stocks/search/').then(complete).catch(failed);
     }
     
     function complete(response) {

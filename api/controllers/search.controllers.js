@@ -1,113 +1,69 @@
-// var mongoose = require('mongoose');
-// var Search = mongoose.model('Search');
+var mongoose = require('mongoose');
+var Search = mongoose.model('Search');
 
-// module.exports.getOneSymbol = function(req, res) {
-//     var symbol = req.params.symbol;
 
-//     // var thisStock = stockData(stockId);
-//     //can stockId be symbol?
-//     console.log("GET stockSymbol", symbol);
-//     Search
 
-//         .find({ Symbol: symbol })
-//         //({ parameter_name: req.params.name })
-//         .exec(function(err, doc) {
-//                 // console.log(doc);
-//                 // console.log(err);
+module.exports.searchAddOne = function(req, res) {
 
-//                 if (err) {
-//                     console.log("Error finding stock symbol");
-//                     res.status = 500;
-//                     res.message = err;
+        var symbol = req.body.symbol;
+     var createdOn = new Date();
 
-//                 }
-//                 else if (!doc) {
-//                     console.log("!doc");
-//                     res.status(404)
-//                         .json(
-//                             "Stock Symbol not found")
-//                 }
+    console.log("Inside searchAddOne", req.body)
 
-//                 else {
-//                     console.log("res");
-//                     console.log("get one:", doc);
-//                     res
-
-//                         .status(200)
-
-//                         .json(doc);
-//                         doc.searches.push({
-//                         Symbol: req.body.symbol
-//                         //  symbol: req.params.symbol
-//                     });
-
-//                     doc.save(function(err, searchUpdated) {
-//                             //save runs on model instance, in this case model is 'stock'
-//                             console.log(req.body.symbol);
-//                             if (err) {
-//                                 res
-//                                     .status(500)
-//                                     .json(err)
-//                             }
-//                             else {
-//                                 res
-//                                     .status(201)
-//                                     .json(searchUpdated.searches[searchUpdated.searches.length - 1]);
-//                                 //getting the last search query
-//                             }
-
-                        
-
-//                     });
-
-//             }
-//             //  if (doc) {
-//             //      console.log('found doc', doc);
-//             //     // _saveSearch(req,res,doc);
-
-//         });
-//     };
+    console.log("POST search to search page", symbol);
     
-    
-// module.exports.searchAddOne = function(req, res) {
-
-//         var symbol = req.body.symbol;
-
-//     console.log("Inside searchAddOne", req.body)
-
-//     console.log("POST search to search page", symbol);
-    
-//     Search
-//         .find ({Symbol: symbol})
-//         // .select('searches')
+    Search.create({
+        Symbol: symbol
+},
         
-//         .exec(function(err, doc)
-//             {
-//                 console.log(doc);
-//                 // console.log(err);
-             
-//             if(err) {
-//             console.log("Error finding stock symbol");
-//             res.status = 500;
-//             res.message = err;
+  function(err, doc)
+            {
+                if(err) {
+            console.log("Error saving stock symbol");
+            res
+                .status(500)
+                .json(err);
+                } 
                 
-//             } else if(!doc) {
-//                 console.log("!doc");
-//                 res.status(404)
-//                 .json(
-//                         "Search Symbol not found")
-//             }   
-//              if (doc) {
-//                  console.log('found doc', doc);
-//                 _saveSearch(req,res,doc);
-//             } 
-//             // else { 
-//             // res
-//             //     .status(201)
-//             //     .json(doc);
-//             // }  
-//         });
-// };
+           else {
+             
+                 console.log('found doc', doc);
+           
+            res
+                .status(201)
+                .json(doc);
+            } 
+            });
+}
+
+
+module.exports.searchGetAll = function(req, res){
+    console.log(req.query);
+    
+    Search
+        .find()
+        .exec(function(err, doc){
+            if(!doc) {
+                console.log("No saved searches");
+                res
+                    .status(404)
+                    .json({"message": "No saved searches"});
+                return;
+            }
+            else if(err){
+                console.log("Error finding saved searches");
+                res
+                    .status(500)
+                    .json(err);
+            }
+
+            console.log("Returned doc", doc);
+            res
+                .status(200)
+                .json(doc);  
+         });
+};
+
 // var _saveSearch = function(req, res, search) {
 //     //in mongoose subdocuments like reviews are held in an array
 //     console.log("********_savesearch", search);

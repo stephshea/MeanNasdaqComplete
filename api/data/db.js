@@ -38,4 +38,4 @@ process.on('SIGUSR2M', function() {
 //bring in schemas and models
 require('./stocks.model');
 require('./users.model');
-// require('./search.model');
+require('./search.model');

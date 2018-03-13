@@ -11,17 +11,17 @@ var commentSchema = new mongoose.Schema({
    }
     });
     
-var searchSchema = new mongoose.Schema({
-    Symbol:{
-        type: String,
-        required: true
+// var searchSchema = new mongoose.Schema({
+//     Symbol:{
+//         type: String,
+//         required: true
         
-    },
-createdOn: {
-         type: Date,
-         "default": Date.now
-  }
-});
+//     },
+// createdOn: {
+//          type: Date,
+//          "default": Date.now
+//   }
+// });
 
 var stockSchema = new mongoose.Schema({
    Symbol:{
@@ -33,8 +33,8 @@ var stockSchema = new mongoose.Schema({
    LastSale: String,
    Sector: String,
    StockUrl: String,
-  comments: [commentSchema],
-  searches: [searchSchema]
+  comments: [commentSchema]
+//   searches: [searchSchema]
 });
 
 

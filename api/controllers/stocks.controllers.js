@@ -159,7 +159,7 @@ module.exports.getOneSymbol = function(req, res) {
 
                 else if (doc) {
                     console.log("res");
-                    console.log("else if get one:", doc);
+                    console.log("else if doc getOneSymbol in stockscontroller:", doc);
                     res
 
                         .status(200)

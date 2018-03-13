@@ -33,16 +33,16 @@ router
     .put(ctrlComments.commentsUpdateOne);
 //     .delete(ctrlComments.commentsDeleteOne);
 
-//search route
+//search route to display symbol search result on search.html
 router
     .route('/stocks/search/:symbol')
     //or symbol, Symbol
     .get(ctrlStocks.getOneSymbol)
     
-  // router
-  //   .route('/search/')
-  //   //or symbol, Symbol
-  //   .post(ctrlSearch.addOneSymbol);  
+  router
+    .route('/stocks/search/')
+    .post(ctrlSearch.searchAddOne)
+    .get(ctrlSearch.searchGetAll);
     
   // router
   //   // .route('/stocks/search/searches')

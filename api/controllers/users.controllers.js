@@ -71,42 +71,42 @@ module.exports.authenticate = function(req, res, next) {
   }
 };
 
-module.exports.searchAddOne = function(req, res) {
+// module.exports.searchAddOne = function(req, res) {
 
-        var symbol = req.params.Symbol;
+//         var symbol = req.params.Symbol;
 
-    console.log("Inside searchAddOne", req.params)
-        var symbol = req.params.symbol;
-    console.log("POST search to search page", symbol);
+//     console.log("Inside searchAddOne", req.params)
+//         var symbol = req.params.symbol;
+//     console.log("POST search to search page", symbol);
     
-    Stock
-        .find ({Symbol: symbol})
-        // .select('searches')
+//     Stock
+//         .find ({Symbol: symbol})
+//         // .select('searches')
         
-        .exec(function(err, doc)
-            {
-                console.log(doc);
-                console.log(err);
+//         .exec(function(err, doc)
+//             {
+//                 console.log(doc);
+//                 console.log(err);
              
-            if(err) {
-            console.log("Error finding stock symbol");
-            res.status = 500;
-            res.message = err;
+//             if(err) {
+//             console.log("Error finding stock symbol");
+//             res.status = 500;
+//             res.message = err;
                 
-            } else if(!doc) {
-                console.log("!doc");
-                res.status(404)
-                .json(
-                        "Search Symbol not found")
-            }   
-             if (doc) {
-                 console.log('found doc', doc);
-                _saveSearch(req,res,doc);
-            } 
-            // else { 
-            // res
-            //     .status(201)
-            //     .json(doc);
-            // }  
-        });
-};
+//             } else if(!doc) {
+//                 console.log("!doc");
+//                 res.status(404)
+//                 .json(
+//                         "Search Symbol not found")
+//             }   
+//             if (doc) {
+//                 console.log('found doc', doc);
+//                 _saveSearch(req,res,doc);
+//             } 
+//             // else { 
+//             // res
+//             //     .status(201)
+//             //     .json(doc);
+//             // }  
+//         });
+// };

@@ -1,8 +1,7 @@
 <h1>Search {{vm.title}}</h1>
 
-<form class = "search" ng-submit="vm.symbolSearch()">
+<form class = "search" ng-submit="vm.symbolSearch(); vm.saveSearch()">
 
-  <!-- vm.saveSearch()-->
 
     <label>Search by Symbol:</label>
     <input type="text" ng-model="vm.symbol"/>
@@ -15,12 +14,24 @@
   
   
   <h4>Saved Searches</h4>
-<ul>
-  <li ng-repeat="search in vm.stock.symbol">
+<!--<ul>-->
+<!--  <li ng-repeat="search in vm.search.searches">-->
     
-{{ searches.search }}</li>
-</ul>
+<!--{{ searches.search }}</li>-->
+<!--</ul>-->
+        
+        <button type="submit" class="btn" ng-click="vm.showSearches()">Show Saved Searches</button>
+        <div ng-if="vm.error">
+            <p>{{vm.err}}</p>
+        </div>
 
+        <ul>
+            <li ng-repeat="search in vm.showSearches">{{search.Symbol}} | {{ search.createdOn }}</li>
+        </ul>
+
+    </div>
+
+</div>
     
 <!--{{ search.search }} | posted: {{ search.createdOn }}-->
 
