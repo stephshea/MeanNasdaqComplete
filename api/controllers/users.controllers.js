@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-var User     = mongoose.model('User');
-var bcrypt   = require('bcrypt-nodejs');
-var jwt      = require('jsonwebtoken');
+var User = mongoose.model('User');
+var bcrypt = require('bcrypt-nodejs');
+var jwt = require('jsonwebtoken');
 
 module.exports.register = function(req, res) {
   console.log('registering user');
@@ -18,7 +18,8 @@ module.exports.register = function(req, res) {
     if (err) {
       console.log(err);
       res.status(400).json(err);
-    } else {
+    }
+    else {
       console.log('user created', user);
       res.status(201).json(user);
     }
@@ -37,14 +38,16 @@ module.exports.login = function(req, res) {
       //fixed from udemy code which was if(err)
       console.log(err);
       res.status(400).json(err);
-    } else {
+    }
+    else {
       if (bcrypt.compareSync(password, user.password)) {
         //check that password and user encrypted pw are equal
         console.log('User found', user);
-        var token = jwt.sign({ username: user.username }, 's3cr3t', { expiresIn: 3600});
-         //token valid for one hour
-        res.status(200).json({success: true, token: token});
-      } else {
+        var token = jwt.sign({ username: user.username }, 's3cr3t', { expiresIn: 3600 });
+        //token valid for one hour
+        res.status(200).json({ success: true, token: token });
+      }
+      else {
         console.log("user not found")
         res.status(401).json('Unauthorized');
       }
@@ -60,53 +63,15 @@ module.exports.authenticate = function(req, res, next) {
       if (error) {
         console.log(error);
         res.status(401).json('Unauthorized');
-      } else {
+      }
+      else {
         req.user = decoded.username;
         //decoded password/token
         next();
       }
     });
-  } else {
+  }
+  else {
     res.status(403).json('No token provided');
   }
 };
-
-// module.exports.searchAddOne = function(req, res) {
-
-//         var symbol = req.params.Symbol;
-
-//     console.log("Inside searchAddOne", req.params)
-//         var symbol = req.params.symbol;
-//     console.log("POST search to search page", symbol);
-    
-//     Stock
-//         .find ({Symbol: symbol})
-//         // .select('searches')
-        
-//         .exec(function(err, doc)
-//             {
-//                 console.log(doc);
-//                 console.log(err);
-             
-//             if(err) {
-//             console.log("Error finding stock symbol");
-//             res.status = 500;
-//             res.message = err;
-                
-//             } else if(!doc) {
-//                 console.log("!doc");
-//                 res.status(404)
-//                 .json(
-//                         "Search Symbol not found")
-//             }   
-//             if (doc) {
-//                 console.log('found doc', doc);
-//                 _saveSearch(req,res,doc);
-//             } 
-//             // else { 
-//             // res
-//             //     .status(201)
-//             //     .json(doc);
-//             // }  
-//         });
-// };

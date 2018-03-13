@@ -1,53 +1,53 @@
 <h1>Search {{vm.title}}</h1>
 
-<form class = "search" ng-submit="vm.symbolSearch(); vm.saveSearch()">
+<form class="search" ng-submit="vm.symbolSearch()">
 
 
-    <label>Search by Symbol:</label>
-    <input type="text" ng-model="vm.symbol"/>
-    
+  <label>Search by Symbol:</label>
+  <input type="text" ng-model="vm.symbol" />
+
   <button type="submit" class="btn btn-primary" name="search-symbol">Search</button>
-  </form>
-  
-  <h4>Search Result</h4>
-<p><a ng-href="#!/stock/{{vm.stock._id}}">{{vm.stock.Name}} | {{vm.stock.Symbol}}</a></p>  
-  
-  
-  <h4>Saved Searches</h4>
+</form>
+
+<h4>Search Result</h4>
+<p><a ng-href="#!/stock/{{vm.stock._id}}">{{vm.stock.Name}} | {{vm.stock.Symbol}}</a></p>
+
+
+<h4>Saved Searches</h4>
 <!--<ul>-->
 <!--  <li ng-repeat="search in vm.search.searches">-->
-    
+
 <!--{{ searches.search }}</li>-->
 <!--</ul>-->
-        
-        <button type="submit" class="btn" ng-click="vm.showSearches()">Show Saved Searches</button>
-        <div ng-if="vm.error">
-            <p>{{vm.err}}</p>
-        </div>
 
-        <ul>
-            <li ng-repeat="search in vm.showSearches">{{search.Symbol}} | {{ search.createdOn }}</li>
-        </ul>
+<button type="submit" class="btn" ng-click="vm.showSearches()">Show Saved Searches</button>
+<div ng-if="vm.error">
+  <p>{{vm.err}}</p>
+</div>
 
-    </div>
+<ul>
+  <li ng-repeat="search in vm.showSearches">{{search.Symbol}}</li>
+</ul>
 
 </div>
-    
+
+</div>
+
 <!--{{ search.search }} | posted: {{ search.createdOn }}-->
 
 
 <!--<div>-->
 <!--  <form name="vm.searchForm" ng-submit="vm.addSearch()">-->
-   
-<!--    Search stock Symbols: <input type="text" name="search" required ng-model="vm.search">-->
-    <!--<div ng-show="vm.searchForm.search.$dirty && vm.isSubmitted">-->
-    <!--  <p>Enter a symbol</p>-->
-    
 
-  
+<!--    Search stock Symbols: <input type="text" name="search" required ng-model="vm.search">-->
+<!--<div ng-show="vm.searchForm.search.$dirty && vm.isSubmitted">-->
+<!--  <p>Enter a symbol</p>-->
+
+
+
 <!--<ul>-->
 <!--  <li ng-repeat="comment in vm.stock.comments">  <!--{{ comment.username }} says:-->
-    
+
 <!--{{ comment.comment }} | posted: {{ comment.createdOn }}</li>-->
 <!--</ul>-->
 

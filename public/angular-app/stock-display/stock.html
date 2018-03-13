@@ -1,19 +1,20 @@
-<h2><a ng-href="{{ vm.stock.StockUrl }}" target= "blank">{{ vm.stock.Symbol }}</a> {{ vm.stock.Name }}</h2>
+<h2><a ng-href="{{ vm.stock.StockUrl }}" target="blank">{{ vm.stock.Symbol }}</a> {{ vm.stock.Name }}</h2>
 <h3>Last Sale: {{ vm.stock.LastSale|currency }}</h3>
 <h3>Sector: {{ vm.stock.Sector }}</h3>
 
 <h4>Comments</h4>
 
 <ul>
-  <li ng-repeat="comment in vm.stock.comments">  <!--{{ comment.username }} says:-->
-    
-{{ comment.comment }} | posted: {{ comment.createdOn }}</li>
+  <li ng-repeat="comment in vm.stock.comments">
+    <!--{{ comment.username }} says:-->
+
+    {{ comment.comment }} | posted: {{ comment.createdOn }}</li>
 </ul>
 
 
 <div ng-if="vm.isLoggedIn()">
   <form name="vm.commentForm" ng-submit="vm.addComment()">
-   
+
     Your comment: <textarea name="comment" required ng-model="vm.comment"></textarea>
     <div ng-show="vm.commentForm.comment.$dirty && vm.isSubmitted">
       <p>Please add a comment</p>

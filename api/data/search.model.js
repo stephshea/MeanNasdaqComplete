@@ -1,15 +1,16 @@
 var mongoose = require('mongoose');
 
 var searchSchema = new mongoose.Schema({
-    Symbol:{
+
+    Symbol: {
         type: String,
         required: true
-        
+
     },
-createdOn: {
-         type: Date,
-         "default": Date.now
-   }
+    createdOn: {
+        type: Date,
+        "default": Date.now
+    }
 });
 
 mongoose.model('Search', searchSchema);

@@ -141,104 +141,28 @@ module.exports.getOneSymbol = function(req, res) {
         .find({ Symbol: symbol })
         //({ parameter_name: req.params.name })
         .exec(function(err, doc) {
-                // console.log(doc);
-                // console.log(err);
+            // console.log(doc);
+            // console.log(err);
 
-                if (err) {
-                    console.log("Error finding stock symbol");
-                    res.status = 500;
-                    res.message = err;
+            if (err) {
+                console.log("Error finding stock symbol");
+                res.status = 500;
+                res.message = err;
 
+            }
+            else if (!doc) {
+                console.log("!doc");
+                res.status(404)
+                    .json(
+                        "Stock Symbol not found")
+            }
+
+            else if (doc) {
+                console.log("res");
+                console.log("else if doc getOneSymbol in stockscontroller:", doc);
+                res
+                    .status(200)
+                    .json(doc);
                 }
-                else if (!doc) {
-                    console.log("!doc");
-                    res.status(404)
-                        .json(
-                            "Stock Symbol not found")
-                }
-
-                else if (doc) {
-                    console.log("res");
-                    console.log("else if doc getOneSymbol in stockscontroller:", doc);
-                    res
-
-                        .status(200)
-
-                        .json(doc);
-                // } 
-                
-                //         doc.searches.push({
-                //         Symbol: req.body.symbol
-                //         //  symbol: req.params.symbol
-                //     });
-
-                //     doc.save(function(err, searchUpdated) {
-                //             //save runs on model instance, in this case model is 'stock'
-                //             console.log(req.body.symbol);
-                //             if (err) {
-                //                 res
-                //                     .status(500)
-                //                     .json(err)
-                //             }
-                //             else {
-                //                 res
-                //                     .status(201)
-                //                     .json(searchUpdated.searches[searchUpdated.searches.length - 1]);
-                //                 //getting the last search query
-                //             }
-                //         });
-                }
-            
-            //  if (doc) {
-            //      console.log('found doc', doc);
-            //     // _saveSearch(req,res,doc);
-
         });
-    };
-    
-    
-    
-    
-    
-    
-
-//             } 
-//             // else { 
-//             // res
-//             //     .status(201)
-//             //     .json(doc);
-//             // }  
-//         });
-// };
-
-
-// var _saveSearch = function(req, res, stock) {
-//     //in mongoose subdocuments like reviews are held in an array
-//     console.log("Saved", stock);
-//     console.log('******req body is', req.body);
-
-//     var symbol = req.body.symbol;
-//     console.log(symbol);
-
-//     stock.searches.push({
-//         Symbol: req.body.symbol
-//         //  symbol: req.params.symbol
-//     });
-
-//     stock.save(function(err, searchUpdated) {
-//         //save runs on model instance, in this case model is 'stock'
-//       console.log(req.body.search);
-//       if(err) {
-//           res
-//             .status(500)
-//             .json(err)
-//       } else {
-//           res
-//             .status(201)
-//             .json(searchUpdated.searches[searchUpdated.searches.length-1]);
-//             //getting the last search query
-//       }
-
-//  });
-
-//  };
+};

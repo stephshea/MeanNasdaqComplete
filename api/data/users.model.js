@@ -4,33 +4,33 @@ var searchSchema = new mongoose.Schema({
   // search:{
   //     type: String,
   //     required: true},
-createdOn: {
-        type: Date,
-        "default": Date.now
+  createdOn: {
+    type: Date,
+    "default": Date.now
   }
 });
 
 var userSchema = new mongoose.Schema({
-   username: {
-       type: String,
-       unique: true,
-       required: true
-   },
-   name: {
-       type: String
-   },
-   password: {
-       type: String,
-       required: true
-   }
+  username: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  name: {
+    type: String
+  },
+  password: {
+    type: String,
+    required: true
+  }
 });
 
 mongoose.model('User', userSchema);
 
 var mongoose = require('mongoose');
-var User     = mongoose.model('User');
-var bcrypt   = require('bcrypt-nodejs');
-var jwt      = require('jsonwebtoken');
+var User = mongoose.model('User');
+var bcrypt = require('bcrypt-nodejs');
+var jwt = require('jsonwebtoken');
 
 module.exports.register = function(req, res) {
   console.log('registering user');
@@ -42,13 +42,14 @@ module.exports.register = function(req, res) {
   User.create({
     username: username,
     name: name,
-    
+
     password: bcrypt.hashSync(password, bcrypt.genSaltSync(10))
   }, function(err, user) {
     if (err) {
       console.log(err);
       res.status(400).json(err);
-    } else {
+    }
+    else {
       console.log('user created', user);
       res.status(201).json(user);
     }
@@ -67,14 +68,16 @@ module.exports.login = function(req, res) {
       //fixed from udemy code which was if(err)
       console.log(err);
       res.status(400).json(err);
-    } else {
+    }
+    else {
       if (bcrypt.compareSync(password, user.password)) {
         //check that password and user encrypted pw are equal
         console.log('User found', user);
-        var token = jwt.sign({ username: user.username }, 's3cr3t', { expiresIn: 3600});
-         //token valid for one hour
-        res.status(200).json({success: true, token: token});
-      } else {
+        var token = jwt.sign({ username: user.username }, 's3cr3t', { expiresIn: 3600 });
+        //token valid for one hour
+        res.status(200).json({ success: true, token: token });
+      }
+      else {
         console.log("user not found")
         res.status(401).json('Unauthorized');
       }
@@ -90,13 +93,15 @@ module.exports.authenticate = function(req, res, next) {
       if (error) {
         console.log(error);
         res.status(401).json('Unauthorized');
-      } else {
+      }
+      else {
         req.user = decoded.username;
         //decoded password/token
         next();
       }
     });
-  } else {
+  }
+  else {
     res.status(403).json('No token provided');
   }
 };

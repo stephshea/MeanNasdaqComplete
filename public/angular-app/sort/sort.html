@@ -22,13 +22,12 @@
 
 
 
- <hr />
- <table>
-    <tr ng-repeat="stock in vm.stocks |orderBy:orderByField:reverseSort">
-        <td><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol }}</a></td>
-        <td>{{ stock.Name }}</td>
-        <td>{{ stock.Sector }}</td>
-    </tr>
-    </tbody>
+<hr />
+<table>
+  <tr ng-repeat="stock in vm.stocks |orderBy:orderByField:reverseSort">
+    <td><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol }}</a></td>
+    <td>{{ stock.Name }}</td>
+    <td>{{ stock.Sector }}</td>
+  </tr>
+  </tbody>
 </table>
- 
