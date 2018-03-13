@@ -53,19 +53,3 @@ function SearchController($route, $routeParams, $window, $location, stockDataFac
     };
 
 }
-
-
-
-
-
-
-//     vm.stock.symbol;
-//         console.log("just above saveSearch in search-display-controller");
-//         stockDataFactory.saveSearch(vm.stock.Symbol).then(function(response) { 
-//         console.log("save search bottom of searchcontroller", response);
-//     }).catch(function(err) {
-// 				console.log(err);
-// 			});
-//  });
-// }
-// }

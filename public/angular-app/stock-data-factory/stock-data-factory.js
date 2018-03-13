@@ -50,6 +50,10 @@ function stockDataFactory($http) {
         return $http.get('/api/stocks/search/').then(complete).catch(failed);
     }
 
+function searchList() {
+     return $http.get('/api/stocks/search/').then(complete).catch(failed);   
+}
+    
     function complete(response) {
         return response;
     }

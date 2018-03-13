@@ -1,16 +1,16 @@
 <h1>Welcome to MeanNasdaq</h1>
 
-<form id = "filter">
-    <label>Search by company:</label>
-    <input type="text" ng-model="search1"/>
+<form id="filter">
+    <label>Search by symbol:</label>
+    <input type="text" ng-model="search1" />
     <!--<button ng-click="orderBy('Name')">Name</button>-->
 </form>
 <ul>
     <li dir-paginate="stock in vm.stocks | filter: search1 | orderBy: vm.stocks.Name | itemsPerPage: 10"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a><br />
-    <p>Last Sale: {{ stock.LastSale|currency }}</p>
-<p>Sector: {{ stock.Sector }}</p>
+        <p>Last Sale: {{ stock.LastSale|currency }}</p>
+        <p>Sector: {{ stock.Sector }}</p>
 
-</li>
+    </li>
 </ul>
 <dir-pagination-controls>
 </dir-pagination-controls>
@@ -19,16 +19,14 @@
 <!--<form id = "filter">-->
 <!--    <label>Search by company:</label>-->
 <!--    <input type="text" ng-model="search"/>-->
-    <!--<button ng-click="orderBy('Name')">Name</button>-->
+<!--<button ng-click="orderBy('Name')">Name</button>-->
 <!--</form>-->
 <!--<ul>-->
 <!--    <li ng-repeat="stock in vm.stocks | filter: search | orderBy: 'Symbol'"><a ng-href="#!/stock/{{stock._id}}">{{ stock.Symbol}} | {{ stock.Name }}</a></li>-->
 <!--</ul>-->
- 
+
 
 
 <!--<div class="text-center">-->
 <!--          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>-->
 <!--          </div>-->
- 
-	
