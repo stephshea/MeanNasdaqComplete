@@ -9,6 +9,7 @@
   /*  margin-bottom: 90px;*/
   /*}*/
   body > .container {
+    margin-top: 2em;
     padding-top: 60px;
   }
   .padded {
@@ -112,7 +113,8 @@ table .tablesort-sortable:hover:after, table .tablesort-asc:after, table .tables
 .news {
   width: 40vw;
   float: right;
-  padding-top: 2em;
+  margin: 2em;
+  padding: 2em;
 }
 
 .container-fluid {
@@ -139,15 +141,19 @@ table .tablesort-sortable:hover:after, table .tablesort-asc:after, table .tables
     
 }
 
-/*li {*/
-/*    margin-bottom: 1em;*/
-/*    color: #990000;*/
-/*    font-size: 1em;*/
-/*}*/
+.news p {
+  font-size: 1em;
+}
+.news li {
+    padding: 1em 0em;
+    /*color: #990000;*/
+    font-size: 1em;
+}
 
 #heading {
-    color: #424E6F;
+    color: #ffffff;
     margin-bottom: 1em;
+    font-size: 1.5em;
 }
 
 /*ul p {*/
@@ -161,12 +167,10 @@ table .tablesort-sortable:hover:after, table .tablesort-asc:after, table .tables
 /*    padding-bottom: 2em;*/
 /*}*/
 
-#selection {
-    margin-top: 4em;
-}
 
 #selection {
     margin-top: 0;
+    color: #000;
 }
 
 .choose {

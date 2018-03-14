@@ -8,7 +8,7 @@ $(document).ready(function() {
 			category: "business",
 			country: "us",
 			language: "en",
-			apiKey: "13b97311a2014874a45db72ad3c7ca88"
+			apiKey: APIKEY
 		},
 		success: function(data) {
 			if (data.status === "ok") {
@@ -33,7 +33,7 @@ $(document).ready(function() {
 			method: "GET",
 			url: "https://newsapi.org/v2/top-headlines",
 			data: {
-				sources: document.getElementById("selection").value, apiKey: "13b97311a2014874a45db72ad3c7ca88"
+				sources: document.getElementById("selection").value, apiKey: APIKEY
 			},
 			success: function(data) {
 				console.log(data);
@@ -47,10 +47,9 @@ $(document).ready(function() {
 						var url = document.createElement('a');
 						url.setAttribute('href', data.articles[i].url);
 						url.innerHTML = data.articles[i].url;
-						// var urlToImage = document.createElement('IMG');					
-						// urlToImage.setAttribute('src', data.articles[i].urlToImage);
-						// urlToImage.innerHTML = data.articles[i].urlToImage;
-						// document.getElementById("headlines").appendChild(urlToImage);
+						
+				
+						
 						document.getElementById("headlines").appendChild(headline);
 						document.getElementById("headlines").appendChild(description);
 				        document.getElementById("headlines").appendChild(url);
