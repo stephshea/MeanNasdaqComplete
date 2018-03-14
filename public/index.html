@@ -17,13 +17,34 @@
         <div>
             <mn-navigation></mn-navigation>
         </div>
-    
-        <div class="container">
+
+            <div class="news">
+	    <p class="choose">Choose Business News Source</p>
+		<form id="source" name="source">
+			<div class="form-group">
+				<select id="selection">
+				</select>
+			</div>
+			<button class="btn btn-primary" type="submit">Get Top Headlines</button>
+		</form>
+		<h1 id="heading"></h1>
+	<ul id="headlines"></ul>
+	<p id="description"></p>
+	<p id="url"></p>
+	
+	<div class="title"></div>
+	<div class="author"></div>
+	<div class="description"></div>
+	</div>
+
+<div class="container">
             <div ng-view></div>
             <!--when route updates in browser mini-html pieces load-->
         </div>
-    
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	</script> 
         <!--adding angular dependencies-->
         <script src="node_modules/angular/angular.js"></script>
         <script src="node_modules/angular-route/angular-route.js"></script>
@@ -41,5 +62,6 @@
         <script src="angular-app/pagination-directive/dirPagination.js"></script>
         <script src="node_modules/angular-tablesort/js/angular-tablesort.js"></script>
         <script src="angular-app/search/search-display-controller.js"></script>
+        <script src="angular-app/news.js"></script>
     </body>
 </html>

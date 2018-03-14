@@ -1,13 +1,13 @@
   /* Sticky footer styles
   -------------------------------------------------- */
-  html {
-    position: relative;
-    min-height: 100%;
-  }
-  body {
+  /*html {*/
+  /*  position: relative;*/
+  /*  min-height: 100%;*/
+  /*}*/
+  /*body {*/
     /* Margin bottom by footer height */
-    margin-bottom: 90px;
-  }
+  /*  margin-bottom: 90px;*/
+  /*}*/
   body > .container {
     padding-top: 60px;
   }
@@ -17,7 +17,10 @@
   
   .navbar {
     font-size: 1.5em;
+    padding-bottom: 2em;
   }
+  
+  
   /*#navbar {*/
   /*  background-color: #ff1db4;*/
   /*}*/
@@ -105,4 +108,68 @@ table .tablesort-sortable:hover:after, table .tablesort-asc:after, table .tables
 
 .showIfLast td:after {
     content: "No data";
+}
+.news {
+  width: 40vw;
+  float: right;
+  padding-top: 2em;
+}
+
+.container-fluid {
+    width: 80vw;
+    border: dashed 2px #424E6F;
+    padding: 2em;
+    overflow: hidden;
+    font-size:calc(100% + 1vw);
+}
+
+#urlToImage {
+    width: 100px;
+    display: block;
+}
+
+.top {
+    background-color: #000;
+    color: #fff;
+    font-size: 3em; 
+    font-weight: bold; 
+    letter-spacing: 1px; 
+    text-align: center;
+    margin-bottom: 1em;
+    
+}
+
+/*li {*/
+/*    margin-bottom: 1em;*/
+/*    color: #990000;*/
+/*    font-size: 1em;*/
+/*}*/
+
+#heading {
+    color: #424E6F;
+    margin-bottom: 1em;
+}
+
+/*ul p {*/
+/*    color: #424E6F;*/
+/*    font-size: .9em;*/
+/*}*/
+
+/*a:link {*/
+/*    font-size: .9em;*/
+/*    display: inline-block;*/
+/*    padding-bottom: 2em;*/
+/*}*/
+
+#selection {
+    margin-top: 4em;
+}
+
+#selection {
+    margin-top: 0;
+}
+
+.choose {
+    font-weight: 700;
+    font-variant: small-caps;
 }
